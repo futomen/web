@@ -1,0 +1,11 @@
+FROM nginx
+
+# futomen_net.crt
+ARG CRT_FILE
+# futomen_net.key
+ARG KEY_FILE
+
+COPY html /usr/share/nginx/html/
+COPY ${CRT_FILE} /var/www/certs/namecheap/futomen_net.crt
+COPY ${KEY_FILE} /var/www/certs/namecheap/futomen_net.key
+COPY futomen_s.conf /etc/nginx/conf.d/
